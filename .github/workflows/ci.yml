@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  push:
+  schedule:
+  - cron: '7 22 * * 4'  # weekly on thursday morning
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: asdf_plugin_test
+        uses: asdf-vm/actions/plugin-test@v1.0.0
+        with:
+          command: github-release --version
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -9,7 +9,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macOS-latest, ubuntu-latest]
+        #os: [macOS-latest, ubuntu-latest]  # macOS workers have proven too unstable to use for now
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: asdf_plugin_test

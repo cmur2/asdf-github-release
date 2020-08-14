@@ -7,7 +7,7 @@
 ## Install
 
 ```
-asdf plugin-add argocd https://github.com/cmur2/asdf-github-release.git
+asdf plugin-add github-release https://github.com/cmur2/asdf-github-release.git
 ```
 
 ## Use

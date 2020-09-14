@@ -3,18 +3,14 @@ name: ci
 on:
   push:
   schedule:
-  - cron: '7 22 * * 4'  # weekly on thursday morning
+  - cron: '22 7 * * 4'  # weekly on thursday morning
 
 jobs:
   build:
-    strategy:
-      matrix:
-        #os: [macOS-latest, ubuntu-latest]  # macOS workers have proven too unstable to use for now
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: asdf_plugin_test
-        uses: asdf-vm/actions/plugin-test@v1.0.0
+        uses: asdf-vm/actions/plugin-test@v1
         with:
           command: github-release --version
         env:
